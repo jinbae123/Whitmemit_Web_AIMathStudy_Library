@@ -1,0 +1,116 @@
+<html>
+    <head>
+        <meta charset='utf-8'/>
+        <title>Whitmem AI Study</title>
+        <style>
+            *{
+                font-family: 'NanumMyeonjo','나눔명조';
+            }
+            .middle{
+                display:inline-block;
+
+                margin-top:15px;
+                font-size:24px;
+                font-weight:bold;
+            }
+            input{
+                background:yellow;
+            }
+            .console{
+                background: rgba(0,0,0,1);
+                width: 100%;
+                overflow :auto;
+                height:300px;
+                color:white;
+            }
+            button{
+                margin: 10px;
+            }
+        </style>
+    </head>
+
+    
+    <body>
+        <h2> Whitmem AI Test Tool !</h1>
+        This tool provides training and prediction data.<br>
+        Whitmem is a personal website for non-commercial purpose. This page is not to be distributed to external services; it is provided as is and may contain inaccuracies.<br>
+        <span style='color:red'>This page is only distributed by test. WE DO NOT HAVE ANY RESPONSIBILITY ABOUT THIS PROJECT INCLUDING RESULT. DO NOT ENTER JS CODE/CSS/STYLE/HTML CODE OR INTO THE INPUT BOX.<br>이 프로젝트는 있는 그대로 제공되며 AS-IS 오직 테스트 목적으로 배포됩니다. 이 프로젝트의 결과를 포함하여 그 어떠한 책임에 대해서도 개발자는 책임지지 않습니다. 입력 박스에 인젝션 의도가 있는 코드 또는 비정상 내용을 입력하지 마십시오.</span>
+        <br>
+        <span class='middle'>- Training Data Set</span>
+        <br>
+        Whitmem AI Library allows registering a variety of neurons, but this form is restricted to up to 2.
+
+        <table border="1">
+            <tr>
+                <td>X</td>
+                <td>Y (Label)</td>
+            </tr>
+            <tr>
+                <td><input type="input" value="1" id="x1"/>-></td>
+                <td><input type="input" value="50" id="y1"/></td>
+            </tr>
+            <tr>
+                <td><input type="input" value="2" id="x2"/>-></td>
+                <td><input type="input" value="100" id="y2"/></td>
+            </tr>
+        </table>
+        <span class='middle'>- Trainning Customizing</span>
+        <br>
+        You can control the number of neurons within 1 layer. Whitmem AI Library allows more neurons to be used, but this form is restricted for simplicity.
+        <table border="1">
+            <tr>
+                <td>INPUT LAYER</td>
+                <td>HIDDEN LAYER</td>
+                <td>OUTPUT LAYER</td>
+            </tr>
+            <tr>
+                <td>1 (FIXED)</td>
+                <td><input type="input" value="100" id="hidden"/></td>
+                <td>1 (FIXED)</td>
+            </tr>
+        </table>
+        Learning Rate 
+        <input type="input" value="0.000001" id="learning_rate"/>
+        EPOCH
+        <input type="input" value="10" id="epoch"/>
+        <button id="trainbutton">First Train(Reset)</button>
+        <button id="moretrainbutton">More Train</button>
+        <hr>
+        <span class='middle'>- Prediction </span><br> Input X
+        <input type="input" value="3" placeholder="x" id="predictx"/>
+        <button id="predictbutton">Predict</button>
+
+        <div class='console' id="console">
+
+        </div>
+
+        
+
+        <img src='https://whitmem.xyz/research/image/profile/profile5.png' width="200px"></img>
+
+        <script type="module">
+            import {start, train, predict} from "./js/test.js";
+
+            document.addEventListener("DOMContentLoaded",()=>{
+
+                document.getElementById("trainbutton").addEventListener("click",()=>{
+
+                    start();
+
+                });
+
+                document.getElementById("moretrainbutton").addEventListener("click",()=>{
+
+                    train();
+
+                });
+                document.getElementById("predictbutton").addEventListener("click",()=>{
+
+                    predict();
+
+                });
+            });
+
+            </script>
+    </body>
+</html>
